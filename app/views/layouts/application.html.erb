@@ -14,30 +14,30 @@
     <!--devise側で用意しているヘルパー-->
     <!--ログイン済みならばtrueが、ログインしていなければfalseが返されます-->
       <li>
-        Home
+      <%= link_to "Home", root_path %>
       </li>
-      
+
       <li>
       <%= link_to 'Users', user_path(current_user.id) %>
       </li>
-      
+
       <li>
         Books
       </li>
-      
+
       <li>
         <%= link_to "logout", destroy_user_session_path, method: :delete %>
         <!--method: :deleteでdestroy_user_session_pathへルーティングさせることでログアウト-->
       </li>
     <% else %>
       <li>
-        Home
+        <%= link_to "Home", root_path %>
       </li>
-      
+
       <li>
-        About
+        <%= link_to "About", "/home/about" %>
       </li>
-      
+
       <li>
         <%= link_to "sign up", new_user_registration_path %>
       </li>
@@ -45,7 +45,7 @@
         <%= link_to "logout", new_user_session_path %>
       </li>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>

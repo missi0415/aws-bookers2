@@ -1,12 +1,16 @@
 userinfoの画面
 userinfo edit
+ <p>Title Opinion</p>
 
 <% @books.each do |book| %>
 <div>
-  <p>画像</p>
-  <p>名前：<%= book.user.name%></p>
-  <p>Title：<%= book.title %></p>
-  <p>Opinion：<%= book.body %></p>
+  <p>名前</p>
+   <p>投稿ユーザー画像：<%= attachment_image_tag book.user, :profile_image_id, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+  <P> <%= link_to book_path(book.id) do %>
+        <%= book.title %>
+      <% end %>
+  </p>
+  <p><%= book.body %></p>
 
 </div>
 <% end %>

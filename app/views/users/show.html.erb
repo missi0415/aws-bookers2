@@ -1,6 +1,20 @@
-<!--<% @books.each do |book| %>-->
-<!--コントローラから渡された@post_images変数内から1つずつ取り出して、post_image変数へ格納します。-->
+users show
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
+ <%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+
+<% @books.each do |book| %>
 <div>
-  
-  
+  <p>名前</p>
+
+  <P> <%= link_to book_path(book.id) do %>
+        <%= book.title %>
+      <% end %>
+  </p>
+  <p><%= book.body %></p>
+
 </div>
+<% end %>

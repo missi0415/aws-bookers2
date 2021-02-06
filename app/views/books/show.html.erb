@@ -1,0 +1,7 @@
+<div class="post-body">
+  <p>投稿ユーザー画像：<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+  <p>名前<%= @book.user_id%></p>
+  <p>Title<%= @book.title %></p>
+  <p>Opinion<%= @book.body %></p>
+
+</div>
