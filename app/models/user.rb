@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
   # Userモデルに対して、Bookモデルが1:N
-  attachment :image
+  attachment :profile_image
   
 end

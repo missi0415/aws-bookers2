@@ -1,0 +1,15 @@
+<h2>Users</h2>
+image name
+
+<% @users.each do |user| %>
+<div>
+   <p>投稿ユーザー画像：<%= attachment_image_tag @user, :profile_image_id, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+   <p><%= user_path(user.name) %></p>
+
+  <p> <%= user_path(user.id) %>
+
+  </p>
+
+
+</div>
+<% end %>

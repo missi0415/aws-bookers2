@@ -1,15 +1,27 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+    
+  end
+
+
   def show
     @user = User.find(params[:id])
     # ユーザのデータを1件取得し、インスタンス変数へ渡す
-     @book = Book.find(params[:id])
-     @books = Book.all
+    @books = Book.all
   end
 
   def edit
   @user = User.find(params[:id])
+  end
+
+  def create
 
   end
+
+
+
 
   def update
     @user = User.find(params[:id])
@@ -21,7 +33,7 @@ class UsersController < ApplicationController
     private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 end
