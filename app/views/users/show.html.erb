@@ -10,7 +10,7 @@ users show
 <div>
   <p>名前</p>
 
-  <P> <%= link_to book_path(book.id) do %>
+  <P> <%= link_to user_path(@user.id) do %>
         <%= book.title %>
       <% end %>
   </p>
