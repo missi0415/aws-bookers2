@@ -1,6 +1,6 @@
 <div class="post-body">
-  <p><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
-  <p>
+  <p><%= attachment_image_tag @book.user_id, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+
 
   <p>Title<%= @book.title %></p>
   <p>Opinion<%= @book.body %></p>
@@ -28,7 +28,7 @@
       <% @books.each do |book| %>
   <tbody>
     <tr>
-      <td><p><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p></tb>
+      <td><p><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p></tb>
 
       <td><%= link_to book_path(book.id) do %>
             <%= book.title %>
