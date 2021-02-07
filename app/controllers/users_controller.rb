@@ -3,25 +3,19 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-  end
+   end
 
 
   def show
     @user = User.find(params[:id])
     # ユーザのデータを1件取得し、インスタンス変数へ渡す
-    @books = Book.all
+    @books = @user.books
+    @book = Book.new
   end
 
   def edit
   @user = User.find(params[:id])
   end
-
-  def create
-
-  end
-
-
-
 
   def update
     @user = User.find(params[:id])

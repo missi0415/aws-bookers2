@@ -1,14 +1,22 @@
-<h2>Users</h2>
-
-<% @users.each do |user| %>
-<div>
-   <p>投稿ユーザー画像：<%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
-   <p><%= user.name %></p>
-
-  <p> <%= link_to "Show", user_path(user.id) %>
-
-  </p>
-
-
+<%#= render 'users/list', users: @users %></div>
+<div class='col-lg-8'>
+  <h2>User</h2>
+  <table class='table table-hover table-inverse'>
+    <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+   <tr>
+     <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></tb>
+     <td><%= user.name %></td>
+     <td><%= link_to "Show", user_path(user.id) %> </td>
+   </tr>
+    <% end %>
+    </tbody>
+    </table>
 </div>
-<% end %>

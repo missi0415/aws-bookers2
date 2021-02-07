@@ -27,7 +27,7 @@
           <!--devise側で用意しているヘルパー-->
           <!--ログイン済みならばtrueが、ログインしていなければfalseが返されます-->
           <li><a class="fas fa-home nav-link text-light">
-            <%= link_to "Home", root_path %>
+            <%= link_to "Home", user_path(current_user) %>
             </a>
           </li>
           <li a class="fas fa-link nav-link text-light">
