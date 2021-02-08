@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!,except: [:top]
   # 本の投稿を管理するコントローラ
 
 
@@ -8,27 +9,37 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
 
     # @user = User.find(@book.user_id)
-
   end
 
-  def new
-
-  end
 
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path(@book.id)
+
+    if @book.save
+      flash[:complete] = "Book was successfully created."
+      redirect_to book_path(@book.id)
+    else
+      @books = Book.all
+      render :index
+    end
   end
 
 
   def show
     @book = Book.find(params[:id])
+    @book_new = Book.new
+    #変数の名前を変える
+    @user = current_user.id
+
   end
 
   def edit
     @book = Book.find(params[:id])
+    # if @user != current_user
+    # redirect_to user_path(current_user.id)
+    # end
+    
   end
 
   def destroy
@@ -39,8 +50,13 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book.id)
+
+      if @book.update(book_params)
+        flash[:complete] = "Book was successfully created."
+        redirect_to book_path(@book.id)
+      else
+        render :edit
+      end
 
   end
 
