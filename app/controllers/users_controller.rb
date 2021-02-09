@@ -3,6 +3,7 @@ before_action :authenticate_user!,except: [:top]
   def index
     @users = User.all
     @user = current_user
+    @book = Book.new
   end
 
 
@@ -22,8 +23,8 @@ before_action :authenticate_user!,except: [:top]
 
   def update
       @user = User.find(params[:id])
-    
-    if  
+
+    if
       @user.update(user_params)
       flash[:update] = "You have updated user successfully."
       redirect_to user_path(@user.id)
