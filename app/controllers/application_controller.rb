@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
+
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction])
   end
   #configure_permitted_parametersでは、devise_parameter_sanitizer.permitでnameのデータ操作を許可するアクションメソッドが指定されています。
   # ユーザ登録（sign_up）の際に、ユーザ名（name）のデータ操作が許可。
