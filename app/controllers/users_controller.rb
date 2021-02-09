@@ -21,8 +21,9 @@ before_action :authenticate_user!,except: [:top]
   end
 
   def update
-    if
       @user = User.find(params[:id])
+    
+    if  
       @user.update(user_params)
       flash[:update] = "You have updated user successfully."
       redirect_to user_path(@user.id)
