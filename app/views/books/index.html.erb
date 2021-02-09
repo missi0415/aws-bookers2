@@ -14,12 +14,12 @@
         <table class='table'>
         <tr><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></tr>
         <tr>
-          <th>name<th>
-          <th><%= current_user.name %><th>
+          <th>name</th>
+          <th><%= current_user.name %></th>
         </tr>
         <tr>
-          <th>introduction<th>
-          <th><%= current_user.introduction %><th>
+          <th>introduction</th>
+          <th><%= current_user.introduction %></th>
         </tr>
       </table>
 
