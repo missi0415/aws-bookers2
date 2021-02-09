@@ -1,12 +1,12 @@
 <p><%= flash[:complete] %></p>
 <p><%= flash[:update] %></p>
-<% if @book.errors.any? %>
+<p><% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this obj from being saved:
   <% @book.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
 <% end %>
-
+</p>
 <div class='container '>
   <div class='row'>
     <div class='col-md-3'>
@@ -63,8 +63,9 @@
             </td>
             <td><%= @book.body %></td>
                 <% if @book.user == current_user %>
-            <td><%= link_to "Edit",edit_book_path(@book) %></td>
-            <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+            <td><%= link_to "Edit",edit_book_path(@book),class:"btn btn-success" %>
+            </td>
+            <td><%= link_to "Destroy", book_path(@book),class:"btn btn-danger", method: :delete %></td>
                 <% end %>
           </tr>
           </tbody>

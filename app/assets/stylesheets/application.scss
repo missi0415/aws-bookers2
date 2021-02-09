@@ -44,10 +44,16 @@ body {
     margin-left: -15px;
 }
 
-
-
-
 .col-md-3{
       flex: 0 0 25%;
       max-width: 25%;
+}
+
+.conplete,.update,.notice {
+    color: green;
+}
+
+.error_explanation {
+    color: #f00;
+
 }
